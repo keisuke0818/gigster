@@ -1,0 +1,52 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @gig.name %>
+</p>
+
+<p>
+  <b>Image:</b>
+</p>
+<%= image_tag @gig.image, :size => "300x300" %>
+
+<p>
+  <b>Infomation:</b>
+  <%= simple_format(@gig.infomation) %>
+</p>
+
+<p>
+  <b>Prefecture code:</b>
+  <%= @gig.prefecture_code %>
+</p>
+
+<p>
+  <b>Day:</b>
+  <%= @gig.day %>
+</p>
+
+<p>
+  <b>Yotube url:</b>
+</p>
+<iframe width="500" height="300" src="<%= @gig.yotube_url %>?feature=player_detailpage" frameborder="0" allowfullscreen></iframe>
+
+<!--
+<iframe width="500" height="360" src="http://www.youtube.com/embed/BrrhsruoHYo?feature=player_detailpage" frameborder="0" allowfullscreen></iframe>
+-->
+
+<p>
+  <b>Members ids:</b>
+  <%= @gig.members_ids %>
+</p>
+
+<p>
+  <b>Created at:</b>
+  <%= @gig.created_at %>
+</p>
+
+<p>
+  <b>Updated at:</b>
+  <%= @gig.updated_at %>
+</p>
+
+<%= link_to 'Back', gigs_path %>

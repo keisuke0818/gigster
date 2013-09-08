@@ -1,0 +1,42 @@
+<h1>Listing gigs</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Image</th>
+    <th>Infomation</th>
+    <th>Prefecture code</th>
+    <th>Day</th>
+    <th>Yotube url</th>
+    <th>Members ids</th>
+    <th>Created at</th>
+    <th>Updated at</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @gigs.each do |gig| %>
+
+  <tr>
+    <td><%= gig.name %></td>
+    <td><%= image_tag @gig.image.to_s %></td>
+    <td><%= gig.infomation %></td>
+    <td><%= gig.prefecture_code %></td>
+    <td><%= gig.day %></td>
+    <td><%= gig.yotube_url %></td>
+    <td><%= gig.members_ids %></td>
+    <td><%= gig.created_at %></td>
+    <td><%= gig.updated_at %></td>
+    <td><%= link_to 'Show', gig %></td>
+    <td><%= link_to 'Edit', edit_gig_path(gig) %></td>
+    <td><%= link_to 'Destroy', gig, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+
+
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Gig', new_gig_path %>

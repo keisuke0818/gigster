@@ -1,0 +1,17 @@
+<%= form_for(@member) do |f| %>
+
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.text_field :email %>
+    <%= error_tag(@member, :email) %>
+  </div>
+  <div class="field">
+    <%= f.label :password %><br />
+    <%= f.text_field :password %>
+    <%= error_tag(@member, :password) %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

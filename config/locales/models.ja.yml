@@ -1,0 +1,23 @@
+ja:
+  activerecord:
+    models:
+      member: 会員
+      gig: ギグ
+    attributes:
+      member:
+        email: メールアドレス
+        password: パスワード
+        name: 名前
+      gig:
+        name: ギグ名
+        image: フライヤー画像
+        infomation: ギグ内容
+        prefecture_code: 都道府県
+        day: 日付
+        yotube_url: Youtube
+    errors: &errors
+    messages:
+      invalid_furigana:
+        は全角ひらがな、もしくは全角カタカナで入力してください
+
+
