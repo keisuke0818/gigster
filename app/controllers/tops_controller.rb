@@ -3,7 +3,8 @@
 class TopsController < ApplicationController
   def index
 
-    @gigs = Gig.where(" day >= datetime('now') ").order("day").limit(100)
+    @gigs = Gig.order("day").limit(100)
+    #.where(" day >= datetime('now') ")
 
     if params[:band] && params[:band][:name] != ""
       @gigs = @gigs.where(" name like ? or infomation like ? ", '%'+params[:band][:name]+'%', '%'+params[:band][:name]+'%')
