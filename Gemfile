@@ -5,7 +5,6 @@ gem 'rails', '3.2.13'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3'
 gem 'rails-i18n'
 gem 'jp_prefecture'
 gem 'enumerated_attribute'
@@ -39,6 +38,11 @@ gem 'jquery-rails'
 
 # To use debugger
 # gem 'debugger'
-group :development, :test do
+group :development do
+  gem 'sqlite3'
   gem 'pry-rails'
 end
+group :production do
+  gem 'pg'
+end
+
