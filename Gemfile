@@ -9,6 +9,7 @@ gem 'rails-i18n'
 gem 'jp_prefecture'
 gem 'enumerated_attribute'
 gem 'carrierwave'
+gem 'therubyracer'
 
 # Gems used only for assets and not required
 # in production environments by default.
