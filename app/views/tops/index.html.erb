@@ -24,6 +24,15 @@
         });
     });
     </script>
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/ja_JP/all.js#xfbml=1&appId=153617311511977";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+    </script>
     <%= image_tag "top.jpg", :alt => 'top', :width => '1000', :height => '400' %>
 
       <div class="navbar navbar-inverse">
@@ -50,6 +59,11 @@
           </div><!-- /.nav-collapse -->
         </div><!-- /.container -->
       </div><!-- /.navbar -->
+
+      <div class="container">
+
+        <div class="fb-like" data-href="http://gigster.jp/" data-width="450" data-layout="button_count" data-show-faces="true" data-send="true"></div>
+      </div>
 
     <% tmp_day = false %>
     <% @gigs.each do |gig| %>
