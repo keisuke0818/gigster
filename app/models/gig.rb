@@ -6,7 +6,7 @@ class Gig < ActiveRecord::Base
   include JpPrefecture
   jp_prefecture :prefecture_code
 
-  validates :name, :presence => true, :allow_blank => true, :length => {:maximum => 20}
+  validates :name, :presence => true, :allow_blank => true, :length => {:maximum => 50}
   validates :infomation, :presence => true, :allow_blank => true, :length => {:maximum => 500}
   validates :prefecture_code, :presence => true, :allow_blank => true
   validates :day, :presence => true, :allow_blank => true

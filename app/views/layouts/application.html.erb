@@ -3,10 +3,17 @@
 <head>
   <title>Gigster</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
+  <link href="/assets/bootstrap.css?body=1" media="all" rel="stylesheet" type="text/css" />
+  <link href="/assets/bootswatch.min.css?body=1" media="all" rel="stylesheet" type="text/css" />
+  <link href="/assets/font-awesome.min.css?body=1" media="all" rel="stylesheet" type="text/css" />
+
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
-</head>
+
+  </head>
 <body>
+
+<%= render :partial => 'shared/header' %>
 
 <%= yield %>
 
