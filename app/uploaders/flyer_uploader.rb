@@ -36,7 +36,7 @@ class FlyerUploader < CarrierWave::Uploader::Base
   # def scale(width, height)
   #   # do something
   # end
-  process :convert => 'png'
+  process :convert => 'jpg'
   process :tags => ['flyer']
 
   version :standard do
