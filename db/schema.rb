@@ -11,11 +11,11 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130909161614) do
+ActiveRecord::Schema.define(:version => 20130909161615) do
 
   create_table "gigs", :force => true do |t|
     t.string   "name"
-    t.string   "image"
+    t.string   "flyer"
     t.text     "infomation"
     t.integer  "prefecture_code"
     t.date     "day"

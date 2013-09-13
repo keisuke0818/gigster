@@ -85,7 +85,7 @@
               <tbody>
         <% end %>
         <tr data-href="/gigs/<%= gig.id %>" >
-          <td width="200" ><%= image_tag gig.image, :size => "150x150" %></td>
+          <td width="200" ><%= image_tag gig.flyer_url, :size => "150x150" %></td>
           <td><%= gig.name %><br/><%= simple_format(gig.infomation) %></td>
         </tr>
 

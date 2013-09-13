@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: htrpvzsiv
+  api_key: '383793248372857'
+  api_secret: 5J7ztvG1Pk5xvBUQXFA3X3t_dFM
+  enhance_image_tag: true
+  static_image_support: false
+production:
+  cloud_name: htrpvzsiv
+  api_key: '383793248372857'
+  api_secret: 5J7ztvG1Pk5xvBUQXFA3X3t_dFM
+  enhance_image_tag: true
+  static_image_support: true
+test:
+  cloud_name: htrpvzsiv
+  api_key: '383793248372857'
+  api_secret: 5J7ztvG1Pk5xvBUQXFA3X3t_dFM
+  enhance_image_tag: true
+  static_image_support: false
