@@ -65,7 +65,7 @@ class FlyerUploader < CarrierWave::Uploader::Base
   # end
 
   def public_id
-    return Gig.id
+    return model.id
   end
 
 end
