@@ -19,7 +19,7 @@ class GigsController < ApplicationController
 
     @gig = Gig.new(params[:gig])
 
-    #@gig.users_ids = current_user.id
+    @gig.users_ids = current_user.id
     @gig.yotube_url = @gig.yotube_url.gsub('watch?v=','embed/')
 
     if @gig.save

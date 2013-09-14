@@ -1797,6 +1797,7 @@ input[type="number"]::-webkit-inner-spin-button {
   padding: 10px 15px;
   margin:10px 10px;
   font-size: 15px;
+  text-align: left;
   line-height: 1.428571429;
   color: #2c3e50;
   vertical-align: middle;
@@ -4496,7 +4497,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
 
 @media (min-width: 768px) {
   .navbar-collapse {
-    width: auto;
+    width: 800px;
     border-top: 0;
     box-shadow: none;
   }
