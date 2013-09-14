@@ -1,6 +1,6 @@
 class Gig < ActiveRecord::Base
 
-  attr_accessible :created_at, :day, :flyer, :infomation, :members_ids, :name, :prefecture_code, :updated_at, :yotube_url
+  attr_accessible :created_at, :day, :flyer, :flyer_cache, :infomation, :members_ids, :name, :prefecture_code, :updated_at, :yotube_url
 
   include JpPrefecture
   jp_prefecture :prefecture_code
