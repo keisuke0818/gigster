@@ -4,7 +4,7 @@ class TopsController < ApplicationController
   def index
 
     @search = Gig.search()
-    @gigs = Gig.where("day >= ?", Time.now - 1.days).order("day").limit(100)
+    @gigs = Gig.where("day > ?", Time.now - 1.days).order("day").limit(100)
 
     if params[:q]
       @search = Gig.search(params[:q])

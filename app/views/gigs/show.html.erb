@@ -12,8 +12,10 @@
             </div>
           </div>
         </div>
+        <% pref = JpPrefecture::Prefecture.find @gig.prefecture_code %>
+        <%= @gig.day %>(<%= pref.name %>)<br/><br/>
 
-        <%= image_tag @gig.flyer_url, :size => "300x250" %>
+        <%= image_tag @gig.flyer_url, :size => "350x300" %>
 
         <!-- Headings -->
 
@@ -21,10 +23,10 @@
           <div class="col-lg-4">
 
             <div class="bs-example">
-              <p class="lead"><%= @gig.day %></p>
-              <p class="lead"><%= simple_format(@gig.infomation) %></p>
+              <p class="lead"><%= br(@gig.infomation) %></p>
             </div>
 
+            <br/>
             <% if @gig.yotube_url != "" %>
               <iframe width="500" height="300" src="<%= @gig.yotube_url %>?feature=player_detailpage" frameborder="0" allowfullscreen></iframe>
             <% end %>

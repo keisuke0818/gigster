@@ -52,7 +52,7 @@
 
               <%= f.text_field :name_cont, :class => 'form-top-control col-lg-8', :placeholder => 'gigs' %>
               <%= f.collection_select :prefecture_code_in, JpPrefecture::Prefecture.all, :code, :name, {:prompt => "select citys"}, {:class => 'form-top-control'} %>
-              <%= f.date_select :day_gteq, {include_blank: true}, {:class => 'form-top-control'} %>
+              <%= f.date_select :day_gteq, {:default => Date.today}, {:class => 'form-top-control'} %>
               <%= f.submit '検索する', :class => "btn btn-success" %>
             <% end %>
 
@@ -86,7 +86,9 @@
         <% end %>
         <tr data-href="/gigs/<%= gig.id %>" >
           <td width="200" ><%= image_tag gig.flyer_url, :size => "150x150" %></td>
-          <td><%= gig.name %><br/><%= simple_format(gig.infomation) %></td>
+          <td><h4><%= gig.name %>　
+              <% pref = JpPrefecture::Prefecture.find gig.prefecture_code %>(<%= pref.name %>)</h4>
+              <%= simple_format(cut_off(gig.infomation, 100)) %></td>
         </tr>
 
       </div>
