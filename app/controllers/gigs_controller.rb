@@ -44,6 +44,10 @@ class GigsController < ApplicationController
     end
   end
 
+  # GET /gigs/1/edit
+  def edit
+    @gig = Gig.find(params[:id])
+  end
 
   # PUT /gigs/1
   # PUT /gigs/1.json
@@ -83,11 +87,5 @@ class GigsController < ApplicationController
       format.json { render json: @gigs }
     end
   end
-
-  # GET /gigs/1/edit
-  def edit
-    @gig = Gig.find(params[:id])
-  end
-
 
 end

@@ -1,5 +1,13 @@
 
-
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/ja_JP/all.js#xfbml=1&appId=1413495668865642";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+    </script>
     <div class="container">
 
       <!-- Typography
@@ -13,7 +21,11 @@
           </div>
         </div>
         <% pref = JpPrefecture::Prefecture.find @gig.prefecture_code %>
-        <%= @gig.day %>(<%= pref.name %>)<br/><br/>
+        <%= @gig.day %>(<%= pref.name %>)　
+        <% if current_user.id == @gig.users_ids %>
+          <%= link_to '(編集)', edit_gig_path(@gig), :style => "color:18bc9c;" %>
+        <% end %>
+        <br/><br/>
 
         <%= image_tag @gig.flyer_url, :size => "350x300" %>
 
@@ -26,9 +38,11 @@
               <p class="lead"><%= br(@gig.infomation) %></p>
             </div>
 
+            <div class="fb-comments" data-href="http://gigster.jp" data-width="400"></div>
+
             <br/>
             <% if @gig.yotube_url != "" %>
-              <iframe width="500" height="300" src="<%= @gig.yotube_url %>?feature=player_detailpage" frameborder="0" allowfullscreen></iframe>
+              <iframe width="450" height="300" src="<%= @gig.yotube_url %>?feature=player_detailpage" frameborder="0" allowfullscreen></iframe>
             <% end %>
           </div>
         </div>
