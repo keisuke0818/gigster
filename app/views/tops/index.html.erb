@@ -99,8 +99,9 @@
           </article>
 
       </div>
-
-      <div style="color: #ffffff"><%= paginate @gigs %></div>
+      <% if params[:q].nil? %>
+        <div style="color: #ffffff"><%= paginate @gigs %></div>
+      <% end  %>
 
 
 
