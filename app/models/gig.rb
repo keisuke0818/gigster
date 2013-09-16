@@ -6,7 +6,7 @@ class Gig < ActiveRecord::Base
   jp_prefecture :prefecture_code
 
   mount_uploader :flyer, FlyerUploader
-  paginates_per 10
+  paginates_per 100
 
   validates :name, :presence => true, :allow_blank => true, :length => {:maximum => 50}
   validates :infomation, :presence => true, :allow_blank => true, :length => {:maximum => 500}
