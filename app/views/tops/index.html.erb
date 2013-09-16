@@ -27,7 +27,15 @@
       });
     });
     </script>
-
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/ja_JP/all.js#xfbml=1&appId=153617311511977";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+    </script>
+    <div id="fb-root"></div>
     <%= image_tag "top.jpg", :alt => 'top', :width => '1000', :height => '400' %>
 
       <div class="navbar navbar-inverse">
@@ -99,7 +107,7 @@
           </article>
 
       </div>
-      <% if params[:q].nil? %>
+      <% if params[:q] == nil? %>
         <div style="color: #ffffff"><%= paginate @gigs %></div>
       <% end  %>
 
