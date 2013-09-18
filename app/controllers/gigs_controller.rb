@@ -38,6 +38,11 @@ class GigsController < ApplicationController
   def show
     @gig = Gig.find(params[:id])
 
+    @meta_og_title = "Gigster/ギグ共有サービス"
+    @meta_og_url = "http://gigster.jp/gigs/" + @gig.id.to_s
+    @meta_og_image = @gig.flyer_url
+    @meta_og_description = @gig.name
+
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @gig }

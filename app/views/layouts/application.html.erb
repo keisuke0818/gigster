@@ -1,23 +1,23 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Gigster</title>
 
-  <meta name="keywords" content="Gig,Gigster,ギグ,ギグスター,ぎぐ,ぎぐすたー,ライブ,ライブ共有,音楽,コンさーと" />
-  <meta name="description" content="ギグ共有サービス" />
-  <meta name="robots" content="index,follow,noydir,noodp" />
-  <meta name="viewport" content="width=1000" />
-  <meta name="format-detection" content="telephone=no" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title><%=@meta_title%></title>
+  <meta name="keywords" content="<%=@meta_keywords %>" />
+  <meta name="description" content="<%=@meta_description %>" />
+  <meta name="robots" content="<%=@meta_robots %>" />
+  <meta name="viewport" content="<%=@meta_viewport %>" />
+  <meta name="format-detection" content="<%=@meta_format_detection %>" />
+  <meta http-equiv="X-UA-Compatible" content="<%=@meta_X_UA_Compatible %>" />
 
-  <meta property="fb:app_id" content="153617311511977">
-  <meta property="og:title" content="Gigster/ギグ共有サービス">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="http://gigster.jp/">
-  <meta property="og:image" content="http://gigster.jp/assets/gigster.png">
-  <meta property="og:site_name" content="Gigster">
-  <meta property="og:description" content="ギグ共有サービス" />
-  <meta property="og:locale" content="ja_JP" />
+  <meta property="fb:app_id" content="<%=@meta_fg_appid%>">
+  <meta property="og:title" content="<%=@meta_og_title%>">
+  <meta property="og:type" content="<%=@meta_og_type%>">
+  <meta property="og:url" content="<%=@meta_og_url%>">
+  <meta property="og:image" content="<%=@meta_og_image%>">
+  <meta property="og:site_name" content="<%=@meta_og_site_name%>">
+  <meta property="og:description" content="<%=@meta_og_description%>" />
+  <meta property="og:locale" content="<%=@meta_og_locale%>" />
 
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <link href="/assets/bootstrap.css?body=1" media="all" rel="stylesheet" type="text/css" />
