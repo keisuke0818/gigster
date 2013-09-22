@@ -30,7 +30,7 @@
               </ul>
             </li>
             <li>
-              <a href="/">ギグ共有サービス</a>
+              <%= link_to 'ギグ共有サービス', 'infomations/about' %>
             </li>
 
 <!--
@@ -51,7 +51,7 @@
           </ul>
 
           <ul class="nav navbar-nav navbar-right">
-            <li><%= link_to 'about', 'infomations/about' %></li>
+            <li><%= link_to 'help', 'infomations/about' %></li>
 
             <% if user_signed_in? %>
               <li><%= link_to 'gigを登録', new_gig_path %></li>
