@@ -30,7 +30,12 @@
               </ul>
             </li>
             <li>
-              <%= link_to 'ギグ共有サービス', 'infomations/about' %>
+              <%= link_to 'Share gig in the World', 'infomations/about' %>
+            </li>
+            <li><br/>
+              <div class="container">
+                <div class="fb-like" data-href="https://www.facebook.com/gigsterr" data-width="450" data-layout="button_count" data-show-faces="true" data-send="true"></div>
+              </div>
             </li>
 
 <!--
@@ -54,10 +59,10 @@
             <li><%= link_to 'help', 'infomations/about' %></li>
 
             <% if user_signed_in? %>
-              <li><%= link_to 'gigを登録', new_gig_path %></li>
+              <li><%= link_to 'gig-register', new_gig_path %></li>
               <li><%= link_to 'logout', destroy_user_session_path %></li>
             <% else %>
-              <li><%= link_to "facebookでlogin", user_omniauth_authorize_path(:facebook) %></li>
+              <li><%= link_to "facebook-login", user_omniauth_authorize_path(:facebook) %></li>
             <% end %>
           </ul>
 
