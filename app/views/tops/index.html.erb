@@ -55,7 +55,7 @@
             <%= search_form_for @search, :url => '/', :class => 'navbar-form navbar-left' do |f| %>
 
               <%= f.text_field :name_cont, :class => 'form-top-control col-lg-8', :placeholder => 'Gigs name' %>
-              <%= f.country_select :country_in,nil, {:prompt => "Select Countries"}, {:class => 'form-top-control'} %>
+              <%= f.country_select :country,nil, {:prompt => "Select Countries"}, {:class => 'form-top-control'} %>
 
               <%= f.date_select :day_gteq, {:default => Date.today}, {:class => 'form-top-control'} %>
 
