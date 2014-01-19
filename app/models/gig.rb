@@ -9,7 +9,7 @@ class Gig < ActiveRecord::Base
   paginates_per 100
 
   validates :name, :presence => true, :allow_blank => true, :length => {:maximum => 50}
-  validates :infomation, :presence => true, :allow_blank => true, :length => {:maximum => 500}
+  validates :infomation, :presence => true, :allow_blank => true, :length => {:maximum => 1000}
   validates :day, :presence => true, :allow_blank => true
   validates :flyer, :presence => true, :allow_blank => true
   validates :country, :presence => true, :allow_blank => true
