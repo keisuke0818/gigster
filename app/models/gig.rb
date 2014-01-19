@@ -12,6 +12,6 @@ class Gig < ActiveRecord::Base
   validates :infomation, :presence => true, :allow_blank => true, :length => {:maximum => 500}
   validates :day, :presence => true, :allow_blank => true
   validates :flyer, :presence => true, :allow_blank => true
-  #validates :prefecture_code, :presence => true, :allow_blank => true
+  validates :country, :presence => true, :allow_blank => true
 
 end

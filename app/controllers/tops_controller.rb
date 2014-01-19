@@ -6,10 +6,9 @@ class TopsController < ApplicationController
     @search = Gig.search()
     @gigs = Gig.where("day > ?", Time.now - 1.days).order("day").limit(100).page params[:page]
 
-
     if params[:q]
       @search = Gig.search(params[:q])
-      @gigs = @search.result.where("day > ?", Time.now - 1.days).order("day").limit(100)
+      @gigs = @search.result.order("day").limit(100)
     end
 
     respond_to do |format|
