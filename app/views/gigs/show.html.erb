@@ -22,8 +22,7 @@
             </div>
           </div>
         </div>
-        <% pref = JpPrefecture::Prefecture.find @gig.prefecture_code %>
-        <%= @gig.day %>(<%= gig.country %>)　
+        <%= @gig.day %>(<%= @gig.country %>)　
         <% if user_signed_in? && current_user.id == @gig.users_ids %>
           <%= link_to '(編集)', edit_gig_path(@gig), :style => "color:18bc9c;" %>
         <% end %>
