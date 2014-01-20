@@ -22,7 +22,7 @@
             </div>
           </div>
         </div>
-        <%= @gig.day %>(<%= @gig.country %>)　
+        <%= @gig.day %>(<%= @gig.city %> , <%= @gig.country %>)　
         <% if user_signed_in? && current_user.id == @gig.users_ids %>
           <%= link_to '(編集)', edit_gig_path(@gig), :style => "color:18bc9c;" %>
         <% end %>

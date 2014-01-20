@@ -19,14 +19,14 @@
               <form class="bs-example form-horizontal">
                 <fieldset>
                   <div class="form-group">
-                    <label for="inputEmail" class="col-lg-2 control-label">Gig name <font color="#18bc9c">（必須）</font></label>
+                    <label for="inputEmail" class="col-lg-2 control-label">Gig name <font color="#18bc9c">（must）</font></label>
                     <div class="col-lg-10">
                       <%= f.text_field :name,:class => "form-control",:id => "inputEmail",:placeholder => "name" %>
                       <%= error_tag(@gig, :name) %>
                     </div>
                   </div>
                   <div class="form-group">
-                    <label for="inputEmail" class="col-lg-2 control-label">Gig Image<font color="#18bc9c">（必須）</font></label>
+                    <label for="inputEmail" class="col-lg-2 control-label">Gig image<font color="#18bc9c">（must）</font></label>
                     <div class="col-lg-10">
                       <%= f.file_field :flyer,:class => "form-control" %>
                       <%= f.hidden_field :flyer_cache %>
@@ -34,14 +34,23 @@
                     </div>
                   </div>
                   <div class="form-group">
-                    <label for="textArea" class="col-lg-2 control-label">infomation<font color="#18bc9c">（必須）</font></label>
+                    <label for="textArea" class="col-lg-2 control-label">Gig details<font color="#18bc9c">（must）</font></label>
                     <div class="col-lg-10">
                       <%= f.text_area :infomation,:class => "form-control",:placeholder => "infomation" %>
                       <%= error_tag(@gig, :infomation) %>
                     </div>
                   </div>
+
                   <div class="form-group">
-                    <label for="select" class="col-lg-2 control-label">Country<font color="#18bc9c">（必須）</font></label>
+                    <label for="select" class="col-lg-2 control-label">Gig date<font color="#18bc9c">（must）</font></label>
+                    <div class="col-lg-10">
+                      <%= f.date_select :day,:class => "form-control",:id => "select" %><br />
+                      <%= error_tag(@gig, :day) %>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="select" class="col-lg-2 control-label">Country<font color="#18bc9c">（must）</font></label>
                     <div class="col-lg-10">
                       <%= f.country_select :country , [ "United States","United Kingdom","Japan","Australia", "France","Germany","Spain","Ireland","Italy","Sweden","Brazil","Canada", "Denmark", "Israel","Singapore", "India", "Indonesia", "Korea, Republic of" , "China","Hong Kong", "Thailand","South Africa"] %>
                       <%= error_tag(@gig, :country) %>
@@ -50,16 +59,16 @@
                   </div>
 
                   <div class="form-group">
-                    <label for="select" class="col-lg-2 control-label">Gig date<font color="#18bc9c">（必須）</font></label>
+                    <label for="inputEmail" class="col-lg-2 control-label">City（option）</label>
                     <div class="col-lg-10">
-                      <%= f.date_select :day,:class => "form-control",:id => "select" %><br />
-                      <%= error_tag(@gig, :day) %>
+                      <%= f.text_field :city,:class => "form-control",:id => "inputEmail",:placeholder => "city name" %>
+                      <%= error_tag(@gig, :city) %>
                     </div>
                   </div>
 
                   <div class="form-group">
                     <label for="inputEmail" class="col-lg-2 control-label">
-                    YouTube URL（任意）</label>
+                    YouTube URL（option）</label>
                     <div class="col-lg-10">
                       <%= f.text_field :yotube_url,:class => "form-control",:id => "inputEmail",:placeholder => "youtube" %><br />
                       <%= error_tag(@gig, :yotube_url) %>

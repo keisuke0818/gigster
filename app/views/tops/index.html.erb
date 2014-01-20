@@ -95,7 +95,7 @@
                 <tr data-href="/gigs/<%= gig.id %>" >
                   <td width="200" ><%= image_tag gig.flyer_url, :size => "150x150" %></td>
                   <td><h4><%= gig.name %>　
-                      (<%= gig.country %>)</h4>
+                      (<%= gig.city %> , <%= gig.country %>)</h4>
                       <%= simple_format(cut_off(gig.infomation, 100)) %></td>
                 </tr>
             <% end %>
