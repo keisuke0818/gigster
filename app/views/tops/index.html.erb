@@ -37,7 +37,10 @@
     }(document, 'script', 'facebook-jssdk'));
     </script>
     <div id="fb-root"></div>
+
+    <div id="top-image" style="background-color : #000000">
     <%= image_tag "top.jpg", :alt => 'top', :width => '1000', :height => '400', :align => 'center' %>
+    </div>
 
       <div class="navbar navbar-inverse">
         <div class="container">
@@ -55,7 +58,7 @@
             <%= search_form_for @search, :url => '/', :class => 'navbar-form navbar-left' do |f| %>
 
               <%= f.text_field :name_cont, :class => 'form-top-control col-lg-8', :placeholder => 'Gigs name' %>
-              <%= f.country_select :country_cont,nil, {:prompt => "Select Countries"}, {:class => 'form-top-control'} %>
+              <%= f.country_select :country_cont,[ "United States","United Kingdom","Japan","Australia", "France","Germany","Spain","Ireland","Italy","Sweden", "Brazil","Canada", "Denmark", "Israel","Singapore", "India", "Indonesia", "Korea, Republic of" , "China","Hong Kong", "Thailand","South Africa"], {:prompt => "Countries"}, {:class => 'form-top-control'} %>
 
               <%= f.date_select :day_gteq, {:default => Date.today}, {:class => 'form-top-control'} %>
 
