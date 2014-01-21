@@ -85,7 +85,14 @@ class GigsController < ApplicationController
   # GET /gigs
   # GET /gigs.json
   def index
-    @gigs = Gig.all
+
+    @search = Gig.search()
+    @gigs = Gig.where("day > ?", Time.now - 1.days).order("day").page params[:page]
+
+    if params[:q]
+      @search = Gig.search(params[:q])
+      @gigs = @search.result.order("day")
+    end
 
     respond_to do |format|
       format.html # index.html.erb

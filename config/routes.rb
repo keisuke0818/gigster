@@ -5,7 +5,7 @@ Gigster::Application.routes.draw do
   get "infomations/about"
   #devise_for :users
 
-  resources :gigs, :only => [:new, :create, :show, :edit, :update] do
+  resources :gigs, :only => [:new, :create, :show, :edit, :update, :index] do
     collection do
       get :thanks
     end
