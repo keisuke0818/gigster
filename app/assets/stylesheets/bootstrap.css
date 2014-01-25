@@ -1792,7 +1792,7 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 
 .form-top-control {
-  width: 200px;
+  width: 170px;
   height: 43px;
   padding: 10px 15px;
   margin:10px 10px;
@@ -1829,7 +1829,7 @@ textarea.form-top-control {
 }
 
 select.form-top-control {
-  width: 80px;
+  width: 88px;
 }
 
 #q_prefecture_code_in {

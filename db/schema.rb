@@ -11,7 +11,23 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140120034745) do
+ActiveRecord::Schema.define(:version => 20140125150415) do
+
+  create_table "artists", :force => true do |t|
+    t.string   "name"
+    t.binary   "image"
+    t.text     "detail"
+    t.text     "gunre"
+    t.string   "country"
+    t.string   "city"
+    t.date     "day"
+    t.string   "yotube_url"
+    t.integer  "members_ids"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+    t.integer  "users_ids"
+    t.string   "soundcloud_url"
+  end
 
   create_table "gigs", :force => true do |t|
     t.string   "name"
@@ -25,6 +41,23 @@ ActiveRecord::Schema.define(:version => 20140120034745) do
     t.datetime "updated_at",      :null => false
     t.string   "country"
     t.string   "city"
+    t.string   "soundcloud_url"
+  end
+
+  create_table "houses", :force => true do |t|
+    t.string   "name"
+    t.binary   "image"
+    t.text     "detail"
+    t.string   "address"
+    t.string   "country"
+    t.string   "city"
+    t.date     "day"
+    t.string   "yotube_url"
+    t.integer  "members_ids"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+    t.integer  "users_ids"
+    t.string   "googlemap_url"
   end
 
   create_table "members", :force => true do |t|

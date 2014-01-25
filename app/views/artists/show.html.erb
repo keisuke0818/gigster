@@ -18,22 +18,25 @@
         <div class="row">
           <div class="col-lg-12">
             <div class="page-header">
-              <h2 id="type"><%= @gig.name %></h2>
+              <h2 id="type"><%= @artist.name %></h2>
             </div>
           </div>
         </div>
-        <%= @gig.day %>(<%= @gig.city %> , <%= @gig.country %>)　
-        <% if user_signed_in? && current_user.id == @gig.users_ids %>
-          <%= link_to '(編集)', edit_gig_path(@gig), :style => "color:18bc9c;" %>
+        <%= @artist.day %>(<%= @artist.country %>)　
+        <% if user_signed_in? && current_user.id == @artist.users_ids %>
+          <%= link_to '(編集)', edit_artist_path(@artist), :style => "color:18bc9c;" %>
         <% end %>
 
         <script type="text/javascript" language="javascript">
-        document.write('<div class="fb-like" data-href="http://gigster.jp/gigs/<%= @gig.id %>" data-width="450" data-layout="button_count" data-show-faces="true" data-send="true"></div>');
-        </script>
+        document.write('<div class="fb-like" data-href="http://gigster.jp/gigs/<%= @artist.id %>" data-width="450" data-layout="button_count" data-show-faces="true" data-send="true"></div>');
+        </script><br/><br/>
 
-        <br/><br/>
+        <div class="bs-example">
+          <p class="lead"><%= @artist.gunre %></p>
+        </div>
 
-        <%= image_tag @gig.flyer_url, :size => "350x300" %>
+        <%= image_tag @artist.image_url, :size => "350x300" %>
+
 
         <!-- Headings -->
 
@@ -41,17 +44,17 @@
           <div class="col-lg-4">
 
             <div class="bs-example">
-              <p class="lead"><%= br(@gig.infomation) %></p>
+              <p class="lead"><%= br(@artist.detail) %></p>
             </div>
             <br/>
 
-            <% if @gig.soundcloud_url != "" %>
-              <iframe width="450" height="100" scrolling="no" frameborder="no" src="<%= @gig.soundcloud_url %>"></iframe>
+            <% if @artist.soundcloud_url != "" %>
+              <iframe width="450" height="100" scrolling="no" frameborder="no" src="<%= @artist.soundcloud_url %>"></iframe>
               <br/><br/>
             <% end %>
 
-            <% if @gig.yotube_url != "" %>
-              <iframe width="450" height="300" src="<%= @gig.yotube_url %>?feature=player_detailpage" frameborder="0" allowfullscreen></iframe>
+            <% if @artist.yotube_url != "" %>
+              <iframe width="450" height="300" src="<%= @artist.yotube_url %>?feature=player_detailpage" frameborder="0" allowfullscreen></iframe>
               <br/><br/>
             <% end %>
 
@@ -61,7 +64,7 @@
         </div>
 
         <br/><br/>
-        <%= link_to '一覧へ戻る', '/gigs' %>
+        <%= link_to '一覧へ戻る', '/artists' %>
         <br/><br/>
 
     </div>

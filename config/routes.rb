@@ -11,6 +11,18 @@ Gigster::Application.routes.draw do
     end
   end
 
+  resources :houses, :only => [:new, :create, :show, :edit, :update, :index] do
+    collection do
+      get :thanks
+    end
+  end
+
+  resources :artists, :only => [:new, :create, :show, :edit, :update, :index] do
+    collection do
+      get :thanks
+    end
+  end
+
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
   devise_scope :user do

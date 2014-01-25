@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  image: 
+  detail: MyText
+  gunre: MyText
+  country: MyString
+  city: MyString
+  day: 2014-01-25
+  yotube_url: MyString
+  members_ids: 1
+  created_at: 2014-01-25 17:03:45
+  updated_at: 2014-01-25 17:03:45
+
+two:
+  name: MyString
+  image: 
+  detail: MyText
+  gunre: MyText
+  country: MyString
+  city: MyString
+  day: 2014-01-25
+  yotube_url: MyString
+  members_ids: 1
+  created_at: 2014-01-25 17:03:45
+  updated_at: 2014-01-25 17:03:45
