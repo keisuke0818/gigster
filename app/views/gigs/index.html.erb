@@ -14,7 +14,7 @@
             <%= search_form_for @search, :url => '/gigs', :class => 'navbar-form navbar-left' do |f| %>
 
               <%= f.text_field :name_cont, :class => 'form-top-control col-lg-8', :placeholder => 'Gigs name' %>
-              <%= f.country_select :country_cont,[ "United States","United Kingdom","Japan","Australia", "France","Germany","Spain","Ireland","Italy","Sweden", "Brazil","Canada", "Denmark", "Israel","Singapore", "India", "Indonesia", "Korea, Republic of" , "China","Hong Kong", "Thailand","South Africa"], {:prompt => "Country"}, {:class => 'form-top-control'} %>
+              <%= f.country_select :country_cont,[ "Japan","United States","United Kingdom","Australia", "France","Germany","Spain","Ireland","Italy","Sweden", "Brazil","Canada", "Denmark", "Israel","Singapore", "India", "Indonesia", "Korea, Republic of" , "China","Hong Kong", "Thailand","South Africa"], {:prompt => "Country"}, {:class => 'form-top-control'} %>
 
               <%= f.date_select :day_gteq, {:default => Date.today}, {:class => 'form-top-control'} %>
 
