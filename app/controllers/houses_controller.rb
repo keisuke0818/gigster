@@ -36,6 +36,8 @@ class HousesController < ApplicationController
   # GET /gigs/1.json
   def show
     @house = House.find(params[:id])
+    @house.view_count = @house.view_count + 1
+    @house.save
 
     @meta_og_title = @house.name
     @meta_og_url = "http://gigster.jp/gigs/" + @house.id.to_s

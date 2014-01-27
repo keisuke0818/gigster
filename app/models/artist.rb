@@ -1,5 +1,5 @@
 class Artist < ActiveRecord::Base
-  attr_accessible :city, :country, :created_at, :day, :detail, :gunre, :image, :members_ids, :name, :updated_at, :yotube_url, :soundcloud_url
+  attr_accessible :city, :country, :created_at, :day, :detail, :gunre, :image, :members_ids, :name, :updated_at, :yotube_url, :soundcloud_url, :view_count
 
   mount_uploader :image, FlyerUploader
   paginates_per 100

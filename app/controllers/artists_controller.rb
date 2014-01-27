@@ -37,9 +37,11 @@ class ArtistsController < ApplicationController
   # GET /gigs/1.json
   def show
     @artist = Artist.find(params[:id])
+    @artist.view_count = @artist.view_count + 1
+    @artist.save
 
     @meta_og_title = @artist.name
-    @meta_og_url = "http://gigster.jp/gigs/" + @artist.id.to_s
+    @meta_og_url = "http://gigster.jp/artist/" + @artist.id.to_s
     @meta_og_image = @artist.image_url
     @meta_og_description = "Gigster/ギグ共有サービス"
 
@@ -57,7 +59,7 @@ class ArtistsController < ApplicationController
   # PUT /gigs/1
   # PUT /gigs/1.json
   def update
-    @artist = Gig.find(params[:id])
+    @artist = Artist.find(params[:id])
 
     respond_to do |format|
       if @artist.update_attributes(params[:artist])

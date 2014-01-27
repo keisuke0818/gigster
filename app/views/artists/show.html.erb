@@ -22,21 +22,25 @@
             </div>
           </div>
         </div>
-        <%= @artist.day %>(<%= @artist.country %>)　
-        <% if user_signed_in? && current_user.id == @artist.users_ids %>
-          <%= link_to '(編集)', edit_artist_path(@artist), :style => "color:18bc9c;" %>
-        <% end %>
 
+        <h3>
+        <%= @artist.day %>(<%= @artist.country %>)　
         <script type="text/javascript" language="javascript">
-        document.write('<div class="fb-like" data-href="http://gigster.jp/gigs/<%= @artist.id %>" data-width="450" data-layout="button_count" data-show-faces="true" data-send="true"></div>');
-        </script><br/><br/>
+        document.write('<div class="fb-like" data-href="http://gigster.jp/artist/<%= @artist.id %>" data-width="450" data-layout="button_count" data-show-faces="true" data-send="true"></div>');
+        </script>　
+        <%= @artist.view_count %> Views</h3><br/>
+        </h3>
 
         <div class="bs-example">
           <p class="lead"><%= @artist.gunre %></p>
         </div>
 
-        <%= image_tag @artist.image_url, :size => "350x300" %>
+        <% if user_signed_in? && current_user.id == @artist.users_ids %>
+          <%= link_to '(編集)', edit_artist_path(@artist), :style => "color:18bc9c;" %><br>
+        <% end %>
 
+
+        <%= image_tag @artist.image_url, :size => "350x300" %>
 
         <!-- Headings -->
 

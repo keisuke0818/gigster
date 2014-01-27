@@ -54,8 +54,9 @@
                 <% end %>
                 <tr data-href="/houses/<%= house.id %>" >
                   <td width="200" ><%= image_tag house.image_url, :size => "150x150" %></td>
-                  <td><h4><%= house.name %>　
-                      (<%= house.city %> , <%= house.country %>)</h4>
+                  <td><h4><%= house.name %><br/>
+                      (<%= house.city %> , <%= house.country %>)　
+                      <%= house.view_count %> Views</h4>
                       <%= simple_format(cut_off(house.detail, 100)) %></td>
                 </tr>
             <% end %>

@@ -37,6 +37,8 @@ class GigsController < ApplicationController
   # GET /gigs/1.json
   def show
     @gig = Gig.find(params[:id])
+    @gig.view_count = @gig.view_count + 1
+    @gig.save
 
     @meta_og_title = @gig.name
     @meta_og_url = "http://gigster.jp/gigs/" + @gig.id.to_s
