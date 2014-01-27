@@ -1,5 +1,5 @@
 class House < ActiveRecord::Base
-  attr_accessible :address, :city, :country, :created_at, :day, :detail, :image, :members_ids, :name, :updated_at, :yotube_url, :googlemap_url
+  attr_accessible :address, :city, :country, :created_at, :day, :detail, :image, :members_ids, :name, :updated_at, :yotube_url, :googlemap_url, :view_count
 
   mount_uploader :image, FlyerUploader
   paginates_per 100
