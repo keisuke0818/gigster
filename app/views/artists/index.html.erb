@@ -56,7 +56,7 @@
                 <tr data-href="/artists/<%= artist.id %>" >
                   <td width="200" ><%= image_tag artist.image_url, :size => "150x150" %></td>
                   <td><h4><%= artist.name %><br/>
-                      (<%= artist.country %>)　
+                      (<%= artist.country %>)　( <%= artist.gunre %> )　
                       <%= artist.view_count %> Views</h4>
                       <%= simple_format(cut_off(artist.detail, 100)) %></td>
                 </tr>
