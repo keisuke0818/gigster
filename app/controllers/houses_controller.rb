@@ -18,7 +18,6 @@ class HousesController < ApplicationController
   def create
 
     @house = House.new(params[:house])
-
     @house.users_ids = current_user.id
 
     if @house.save
@@ -88,11 +87,11 @@ class HousesController < ApplicationController
   def index
 
     @search = House.search()
-    @houses = House.order("name").page params[:page]
+    @houses = House.order("country").order("name").page params[:page]
 
     if params[:q]
       @search = House.search(params[:q])
-      @houses = @search.result.order("name")
+      @houses = @search.result.order("country").order("name")
     end
 
     respond_to do |format|
