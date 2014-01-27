@@ -54,8 +54,6 @@
         </div><!-- /.container -->
       </div><!-- /.navbar -->
 
-
-
       <div class="content">
 
           <div class="container">
@@ -89,11 +87,17 @@
             </table>
           </div>
 
-          <div class="container" >
-            　<div class="fb-like" data-href="https://www.facebook.com/gigsterr" data-width="450" data-layout="button_count" data-show-faces="true" data-send="true"></div>　
-             <a href="https://www.facebook.com/gigsterr" style="color:#354c8c;font-weight:bold" target="_blank" >⇒Facebook Page<br/></a>
-          </div>　
+          <div class="container" align="center" >
+            <div class="fb-like" data-href="https://www.facebook.com/gigsterr" data-width="450" data-layout="button_count" data-show-faces="true" data-send="true"></div><br/>
+             <a href="https://www.facebook.com/gigsterr" style="color:#354c8c;font-weight:bold" target="_blank" >Gigster Facebook Page</a><br/><br/>
 
+            <% if user_signed_in? %>
+            <% else %>
+              <%= button_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook), :class=>"btn btn-info" %><br/>
+             </div>
+            <% end %>
+
+          </div>
       </div>
 
       <div class="content">
