@@ -30,7 +30,7 @@
                 <li><a tabindex="-1" href="../united/">United</a></li>
               </ul>
             </li>
-            <li><%= link_to 'You and I Meet the Music ♫', '/' %></li>
+            <li><%= link_to 'Share gigs, You and I Meet the Music.', '/' %></li>
             <li>
             </li>
 
@@ -71,8 +71,11 @@
 
             <% if user_signed_in? %>
               <li><%= link_to 'ログアウト', destroy_user_session_path %></li>
+              <li><%= link_to 'イベント登録', 'gigs/new', :style=>"font-weight:bold" %></li>
             <% else %>
               <li><%= link_to "ログイン", user_omniauth_authorize_path(:facebook), :style=>"color:#354c8c;font-weight:bold" %></li>
+              <li><%= link_to "イベント登録", user_omniauth_authorize_path(:facebook), :style=>"font-weight:bold" %></li>
+
             <% end %>
           </ul>
 
