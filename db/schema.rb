@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140127030349) do
+ActiveRecord::Schema.define(:version => 20140131024757) do
 
   create_table "artists", :force => true do |t|
     t.string   "name"
@@ -28,6 +28,36 @@ ActiveRecord::Schema.define(:version => 20140127030349) do
     t.integer  "users_ids"
     t.string   "soundcloud_url"
     t.integer  "view_count",     :default => 0
+  end
+
+  create_table "comment_artists", :force => true do |t|
+    t.string   "content"
+    t.integer  "user_id"
+    t.integer  "artist_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "comments", :force => true do |t|
+    t.string   "content"
+    t.integer  "user_id"
+    t.integer  "gig_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "favorite_artists", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "artist_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "favorites", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "gig_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "gigs", :force => true do |t|
