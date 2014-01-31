@@ -27,10 +27,33 @@ class ArtistsController < ApplicationController
     else
       render :new
     end
-
   end
 
   def thanks
+  end
+
+  def favorite_artist
+    fav = FavoriteArtist.where(:user_id => current_user.id, :artist_id => params[:id] ).first
+    unless fav
+      @fav = FavoriteArtist.new()
+      @fav.user_id = current_user.id
+      @fav.artist_id = params[:id]
+      @fav.save
+    end
+
+    @artist = Artist.find(params[:id])
+    render action: "show",id: params[:id]
+  end
+
+  def comment_artist
+    @comment = CommentArtist.new()
+    @comment.user_id = current_user.id
+    @comment.artist_id = params[:id]
+    @comment.content = params[:content]
+    @comment.save
+
+    @artist = Artist.find(params[:id])
+    render action: "show",id: params[:id]
   end
 
   # GET /gigs/1

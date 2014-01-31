@@ -36,9 +36,8 @@
         </div>
 
         <% if user_signed_in? && current_user.id == @artist.users_ids %>
-          <%= link_to '(編集)', edit_artist_path(@artist), :style => "color:18bc9c;" %><br>
+          <%= link_to '(編集する)', edit_artist_path(@artist), :style => "color:18bc9c;" %><br>
         <% end %>
-
 
         <%= image_tag @artist.image_url, :size => "350x300" %>
 
@@ -62,13 +61,62 @@
               <br/><br/>
             <% end %>
 
-            <div class="fb-comments" data-href="<%=@meta_og_url%>" data-width="400"></div>
-
           </div>
         </div>
 
-        <br/><br/>
-        <%= link_to '一覧へ戻る', '/artists' %>
+        <% if user_signed_in? %>
+            <%= button_to "お気に入り♥", { :controller=>"artists", :action => "favorite_artist", :id => @artist.id }, :confirm => "お気に入りにいれますか?", :method => :favorite, :class=>"btn btn-danger", :style=>"margin: 70px 0 0 0;" %>
+        <% else %>
+            <%= button_to "お気に入り♥", user_omniauth_authorize_path(:facebook), :class=>"btn btn-danger", :style=>"margin: 70px 0 0 0;" %>
+        <% end %><br/>
+
+        <div class="bs-example">
+          <p class="lead" style="color:#e74c3c;">お気に入りユーザ</p>
+          <% if user_signed_in? %>
+              <% @artist.favorite_artists.each do |f| %>
+                　<%= f.user.name %><br/>
+              <% end %>
+          <% else %>
+            <p><font color="red">※お気に入りユーザを見るにはログインか会員登録して下さい。</font></p>
+          <% end %>
+
+        </div><br/>
+
+        <div class="bs-example">
+          <p class="lead" style="color:#18bc9c;" >コメント</p>
+          <% if user_signed_in? %>
+              <% @artist.comment_artists.each do |c| %>
+                  <div class="bsa well">
+                  　<%= c.created_at.strftime("%m/%d %H:%M")  %>　
+                  　<%= c.content %>　
+                  　by <%= c.user.name %>
+                  </div>
+              <% end %>
+
+              <%= form_tag('/artists/comment_artist/') do %>
+                <form class="bs-example form-horizontal">
+                  <div class="form-group">
+                    　<%= text_area_tag 'content', "", :class => "form-control" %>
+                  </div>
+
+                  <div class="form-group">
+                    <%= submit_tag ["コメントする"], :class => "btn btn-primary" %>
+                  </div>
+                  <input name="id" type="hidden" value="<%= @artist.id %>">
+                </form>
+              <% end %>
+
+          <% else %>
+            <p><font color="red">※コメントを見るにはログインか会員登録して下さい。</font></p><br/>
+            Facebook会員登録<%= button_to "→　Sign in with Facebook　←", user_omniauth_authorize_path(:facebook), :class=>"btn btn-info" %><br/>
+            Twitter会員登録
+             <%= button_to "→　Sign in with Twitter　←", user_omniauth_authorize_path(:twitter), :class=>"btn btn-info", :style=>"background-color:#00acee;border-color:#00acee;" %><br/>
+
+          <% end %>
+        </div>
+
+        <%= link_to '一覧へ戻る', '/artists' %><br/><br/>
+        <%= link_to 'TOPへ戻る', '/' %>
         <br/><br/>
 
     </div>

@@ -1,5 +1,5 @@
 
-    <div class="navbar navbar-default navbar-fixed-top">
+    <div class="navbar navbar-default navbar-fixed-top" align="center" >
       <div class="container">
         <div class="navbar-header">
           <a href="/" class="navbar-brand">Gigster</a>
@@ -12,6 +12,7 @@
 
         <div class="navbar-collapse collapse" id="navbar-main">
           <ul class="nav navbar-nav">
+
             <li class="dropdown">
               <ul class="dropdown-menu" aria-labelledby="themes">
                 <li><a tabindex="-1" href="../default/">Default</a></li>
@@ -29,9 +30,7 @@
                 <li><a tabindex="-1" href="../united/">United</a></li>
               </ul>
             </li>
-            <li>
-              <%= link_to 'Share gigs Around the World', 'infomations/about' %>
-            </li>
+            <li><%= link_to 'You and I Meet the Music ♫', '/' %></li>
             <li>
             </li>
 
@@ -43,7 +42,7 @@
               <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="download">Download <span class="caret"></span></a>
               <ul class="dropdown-menu" aria-labelledby="download">
                 <li><a tabindex="-1" href="./bootstrap.min.css">bootstrap.min.css</a></li>
-                <li><a tabindex="-1" href="./bootstrap.css">bootstrap.css</a></li>
+                <li><a tabindex="-1" href="./bootstrap.cpss">bootstrap.css</a></li>
                 <li class="divider"></li>
                 <li><a tabindex="-1" href="./variables.less">variables.less</a></li>
                 <li><a tabindex="-1" href="./bootswatch.less">bootswatch.less</a></li>
@@ -65,13 +64,15 @@
               <a href="http://news.bootswatch.com">Airtist</a>
             </li>
 -->
-            <li><%= link_to 'help', 'infomations/about' %></li>
+
+            <li><%= link_to 'Home', '/' %></li>
+
+            <li><%= link_to 'ヘルプ', 'infomations/about' %></li>
 
             <% if user_signed_in? %>
-              <li><%= link_to 'Logout', destroy_user_session_path %></li>
-              <li><%= link_to 'Gig Register', new_gig_path, :style=>"color:#000000;font-weight:bold" %></li>
+              <li><%= link_to 'ログアウト', destroy_user_session_path %></li>
             <% else %>
-              <li><%= link_to "Facebook Login", user_omniauth_authorize_path(:facebook), :style=>"color:#354c8c;font-weight:bold" %></li>
+              <li><%= link_to "ログイン", user_omniauth_authorize_path(:facebook), :style=>"color:#354c8c;font-weight:bold" %></li>
             <% end %>
           </ul>
 

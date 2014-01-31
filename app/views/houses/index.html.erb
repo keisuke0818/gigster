@@ -13,10 +13,10 @@
 
             <%= search_form_for @search, :url => '/houses', :class => 'navbar-form navbar-left' do |f| %>
 
-              <%= f.text_field :name_cont, :class => 'form-top-control col-lg-8', :placeholder => 'House name' %>
+              <%= f.text_field :name_cont, :class => 'form-top-control col-lg-8', :placeholder => 'ライブハウス名' %>
               <%= f.country_select :country_cont,[ "Japan","United States","United Kingdom","Australia", "France","Germany","Spain","Ireland","Italy","Sweden", "Brazil","Canada", "Denmark", "Israel","Singapore", "India", "Indonesia", "Korea, Republic of" , "China","Hong Kong", "Thailand","South Africa"], {:prompt => "Country"}, {:class => 'form-top-control'} %>
 
-              <%= f.submit 'House Search', :class => "btn btn-success" %>
+              <%= f.submit 'ハウス検索', :class => "btn btn-success" %>
             <% end %>
 
           </div><!-- /.nav-collapse -->
@@ -26,12 +26,12 @@
       <% if user_signed_in? %>
         <div class="container">
             <a href="./houses/new" >
-                <button type="button" class="btn btn-success" >House Register</button>
+                <button type="button" class="btn btn-success" >ハウスを登録する</button>
             </a>
         </div>
       <% end %>
 
-      <h3 id="tables" align="center" ><%= "--- Gig House ---" %></h3>
+      <h3 id="tables" align="center" ><%= "--- ライブハウス一覧 ---" %></h3>
 
       <div class="content">
 

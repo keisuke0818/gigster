@@ -4,6 +4,12 @@ class Artist < ActiveRecord::Base
   mount_uploader :image, FlyerUploader
   paginates_per 100
 
+  has_many :favorite_artists
+  has_many :users, :through => :favorite_artists
+
+  has_many :comment_artists
+  has_many :users, :through => :comment_artists
+
   validates :name, :presence => true, :allow_blank => true, :length => {:maximum => 50}
   validates :gunre, :presence => true, :allow_blank => true, :length => {:maximum => 50}
   #validates :image, :presence => true, :allow_blank => true

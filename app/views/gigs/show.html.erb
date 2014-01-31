@@ -19,24 +19,22 @@
           <div class="col-lg-12">
             <div class="page-header">
               <h2 id="type"><%= @gig.name %></h2>
-               <h3>
             </div>
           </div>
         </div>
         <h3>
-        <%= @gig.day %>　(<%= @gig.city %> , <%= @gig.country %>)　
+        <%= @gig.day %>　(<% pref = JpPrefecture::Prefecture.find @gig.prefecture_code %> <%= pref.name %> , <%= @gig.country %>)　
         <script type="text/javascript" language="javascript">
         document.write('<div class="fb-like" data-href="http://gigster.jp/gigs/<%= @gig.id %>" data-width="450" data-layout="button_count" data-show-faces="true" data-send="true"></div>');
         </script>　
         <%= @gig.view_count %> Views</h3><br/>
 
         <% if user_signed_in? && current_user.id == @gig.users_ids %>
-          <%= link_to '(編集)', edit_gig_path(@gig), :style => "color:18bc9c;" %>
+          <%= link_to '(編集する)', edit_gig_path(@gig), :style => "color:18bc9c;" %>
           <br/>
         <% end %>
 
-
-        <%= image_tag @gig.flyer_url, :size => "350x300" %>
+        <%= image_tag @gig.flyer_url, :size => "300x250" %>
 
         <!-- Headings -->
 
@@ -44,27 +42,80 @@
           <div class="col-lg-4">
 
             <div class="bs-example">
-              <p class="lead"><%= br(@gig.infomation) %></p>
+              <p class="lead"><h3><%= br(@gig.infomation) %></h3></p>
             </div>
             <br/>
 
             <% if @gig.soundcloud_url != "" %>
               <iframe width="450" height="100" scrolling="no" frameborder="no" src="<%= @gig.soundcloud_url %>"></iframe>
-              <br/><br/>
+              <br/>
             <% end %>
 
             <% if @gig.yotube_url != "" %>
               <iframe width="450" height="300" src="<%= @gig.yotube_url %>?feature=player_detailpage" frameborder="0" allowfullscreen></iframe>
-              <br/><br/>
+              <br/>
             <% end %>
 
+            <!--
             <div class="fb-comments" data-href="<%=@meta_og_url%>" data-width="400"></div>
+            -->
 
           </div>
         </div>
 
-        <br/><br/>
-        <%= link_to '一覧へ戻る', '/gigs' %>
+        <% if user_signed_in? %>
+            <%= button_to "お気に入り♥", { :controller=>"gigs", :action => "favorite", :id => @gig.id }, :confirm => "お気に入りにいれますか?", :method => :favorite, :class=>"btn btn-danger", :style=>"margin: 70px 0 0 0;" %>
+        <% else %>
+            <%= button_to "お気に入り♥", user_omniauth_authorize_path(:facebook), :class=>"btn btn-danger", :style=>"margin: 70px 0 0 0;" %>
+        <% end %><br/>
+
+        <div class="bs-example">
+          <p class="lead" style="color:#e74c3c;">お気に入りユーザ</p>
+          <% if user_signed_in? %>
+              <% @gig.favorites.each do |f| %>
+                　<%= f.user.name %><br/>
+              <% end %>
+          <% else %>
+            <p><font color="red">※お気に入りユーザを見るにはログインか会員登録して下さい。</font></p>
+          <% end %>
+
+        </div><br/>
+
+        <div class="bs-example">
+          <p class="lead" style="color:#18bc9c;" >コメント</p>
+          <% if user_signed_in? %>
+              <% @gig.comments.each do |c| %>
+                  <div class="bsa well">
+                  　<%= c.created_at.strftime("%m/%d %H:%M")  %>　
+                  　<%= c.content %>　
+                  　by <%= c.user.name %>
+                  </div>
+              <% end %>
+
+              <%= form_tag('/gigs/comment/') do %>
+                <form class="bs-example form-horizontal">
+                  <div class="form-group">
+                    　<%= text_area_tag 'content', "", :class => "form-control" %>
+                  </div>
+
+                  <div class="form-group">
+                    <%= submit_tag ["コメントする"], :class => "btn btn-primary" %>
+                  </div>
+                  <input name="id" type="hidden" value="<%= @gig.id %>">
+                </form>
+              <% end %>
+
+          <% else %>
+            <p><font color="red">※コメントを見るにはログインか会員登録して下さい。</font></p><br/>
+            Facebook会員登録<%= button_to "→　Sign in with Facebook　←", user_omniauth_authorize_path(:facebook), :class=>"btn btn-info" %><br/>
+            Twitter会員登録
+             <%= button_to "→　Sign in with Twitter　←", user_omniauth_authorize_path(:twitter), :class=>"btn btn-info", :style=>"background-color:#00acee;border-color:#00acee;" %><br/>
+
+          <% end %>
+        </div>
+
+        <%= link_to '一覧へ戻る', '/gigs' %><br/><br/>
+        <%= link_to 'TOPへ戻る', '/gigs' %>
         <br/><br/>
 
     </div>

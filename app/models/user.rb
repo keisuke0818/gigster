@@ -11,6 +11,13 @@ class User < ActiveRecord::Base
   devise :trackable, :omniauthable
   attr_accessible :name, :password, :uid, :provider
 
+  has_many :gigs
+  has_many :users, :through => :gigs
+  attr_accessible :users_ids
+
+  has_many :artists
+  has_many :users, :through => :artists
+
   def self.new_with_session(params, session)
     super.tap do |user|
       if data = session["devise.facebook_data"] && session["devise.facebook_data"]["extra"]["raw_info"]

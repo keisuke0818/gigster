@@ -5,9 +5,11 @@ Gigster::Application.routes.draw do
   get "infomations/about"
   #devise_for :users
 
-  resources :gigs, :only => [:new, :create, :show, :edit, :update, :index] do
+  resources :gigs, :only => [:new, :create, :show, :edit, :update, :index, :favorite] do
     collection do
       get :thanks
+      post :favorite
+      post :comment
     end
   end
 
@@ -17,11 +19,17 @@ Gigster::Application.routes.draw do
     end
   end
 
-  resources :artists, :only => [:new, :create, :show, :edit, :update, :index] do
+  resources :artists, :only => [:new, :create, :show, :edit, :update, :index, :favorite_artist] do
     collection do
       get :thanks
+      post :favorite_artist
+      post :comment_artist
     end
   end
+
+
+  get 'auth/:provider/callback' => 'sessions#create'
+  get 'auth/failure' => redirect('/')
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
@@ -29,6 +37,7 @@ Gigster::Application.routes.draw do
     get 'sign_in', :to => 'devise/sessions#new', :as => :new_user_session
     get 'sign_out', :to => 'devise/sessions#destroy', :as => :destroy_user_session
   end
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

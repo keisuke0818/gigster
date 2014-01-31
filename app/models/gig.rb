@@ -1,9 +1,15 @@
 class Gig < ActiveRecord::Base
 
-  attr_accessible :created_at, :day, :flyer, :flyer_cache, :infomation, :members_ids, :name, :country, :updated_at, :yotube_url, :city, :soundcloud_url, :view_count
+  attr_accessible :created_at, :day, :flyer, :flyer_cache, :infomation, :members_ids, :name, :country, :updated_at, :yotube_url, :city, :soundcloud_url, :view_count, :prefecture_code
 
   include JpPrefecture
   jp_prefecture :prefecture_code
+
+  has_many :favorites
+  has_many :users, :through => :favorites
+
+  has_many :comments
+  has_many :users, :through => :comments
 
   mount_uploader :flyer, FlyerUploader
   paginates_per 100

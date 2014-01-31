@@ -13,10 +13,10 @@
 
             <%= search_form_for @search, :url => '/artists', :class => 'navbar-form navbar-left' do |f| %>
 
-              <%= f.text_field :name_cont, :class => 'form-top-control col-lg-8', :placeholder => 'Artist name' %>
-              <%= f.country_select :country_cont,[ "Japan","United States","United Kingdom","Australia", "France","Germany","Spain","Ireland","Italy","Sweden", "Brazil","Canada", "Denmark", "Israel","Singapore", "India", "Indonesia", "Korea, Republic of" , "China","Hong Kong", "Thailand","South Africa"], {:prompt => "Country"}, {:class => 'form-top-control'} %>
+              <%= f.text_field :name_cont, :class => 'form-top-control col-lg-8', :placeholder => 'アーティスト名' %>
+              <%= f.country_select :country_cont,[ "Japan","United States","United Kingdom","Australia", "France","Germany","Spain","Ireland","Italy","Sweden", "Brazil","Canada", "Denmark", "Israel","Singapore", "India", "Indonesia", "Korea, Republic of" , "China","Hong Kong", "Thailand","South Africa"], {:prompt => "国"}, {:class => 'form-top-control'} %>
 
-              <%= f.submit 'Artist Search', :class => "btn btn-success" %>
+              <%= f.submit '検索する', :class => "btn btn-success" %>
             <% end %>
 
           </div><!-- /.nav-collapse -->
@@ -26,13 +26,13 @@
       <% if user_signed_in? %>
       <div class="container">
           <a href="./artists/new" >
-              <button type="button" class="btn btn-success" >Artist Register</button>
+              <button type="button" class="btn btn-success" >アーティストを登録する</button>
           </a>
       </div>
 
       <% end %>
 
-      <h3 id="tables" align="center" ><%= "--- Gig Artist ---" %></h3>
+      <h3 id="tables" align="center" ><%= "--- アーティスト一覧 ---" %></h3>
 
       <div class="content">
 
@@ -59,6 +59,13 @@
                       (<%= artist.country %>)　( <%= artist.gunre %> )　
                       <%= artist.view_count %> Views</h4>
                       <%= simple_format(cut_off(artist.detail, 100)) %></td>
+                  <td width="100">
+                    <% if user_signed_in? %>
+                        <%= button_to "お気に入り♥", { :controller=>"artists", :action => "favorite_artist", :id => artist.id }, :confirm => "お気に入りにいれますか?", :method => :favorite, :class=>"btn btn-danger", :style=>"margin: 50px 0 0 0;" %>
+                    <% else %>
+                        <%= button_to "お気に入り♥", user_omniauth_authorize_path(:facebook), :class=>"btn btn-danger", :style=>"margin: 50px 0 0 0;" %>
+                    <% end %><br/>
+                  </td>
                 </tr>
             <% end %>
 

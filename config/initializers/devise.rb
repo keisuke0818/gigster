@@ -223,8 +223,10 @@ Devise.setup do |config|
   case Rails.env
     when "development"
       config.omniauth :facebook, '182574835259617', '3d9c7efe75537c3a7e8c1c1371b27554', :scope => 'email,user_birthday', :display => 'popup'
+      config.omniauth :twitter, 'XlQ3EcznL8mkBzzGUVLeRQ', 'HpEFDabQa1uZV81znPOrBIU0dhttfpIfamr9xrrtKLw', :scope => 'email,user_birthday', :display => 'popup'
     when "production"
       config.omniauth :facebook, '153617311511977', '81db3b085785a18a141f1a5531051206', :scope => 'email,user_birthday', :display => 'popup'
+      config.omniauth :twitter, 'XlQ3EcznL8mkBzzGUVLeRQ', 'HpEFDabQa1uZV81znPOrBIU0dhttfpIfamr9xrrtKLw', :scope => 'email,user_birthday', :display => 'popup'
   end
 
   # ==> Warden configuration

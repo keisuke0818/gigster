@@ -8,7 +8,7 @@
         <div class="row">
           <div class="col-lg-12">
             <div class="page-header">
-              <h2 id="forms">Gig Register</h2>
+              <h2 id="forms">イベントを登録する</h2>
             </div>
           </div>
         </div>
@@ -19,14 +19,14 @@
               <form class="bs-example form-horizontal">
                 <fieldset>
                   <div class="form-group">
-                    <label for="inputEmail" class="col-lg-2 control-label">Gig name <font color="#18bc9c">（must）</font></label>
+                    <label for="inputEmail" class="col-lg-2 control-label">イベント名<font color="#18bc9c">（必須）</font></label>
                     <div class="col-lg-10">
                       <%= f.text_field :name,:class => "form-control",:id => "inputEmail",:placeholder => "name" %>
                       <%= error_tag(@gig, :name) %>
                     </div>
                   </div>
                   <div class="form-group">
-                    <label for="inputEmail" class="col-lg-2 control-label">Gig image<font color="#18bc9c">（must）</font></label>
+                    <label for="inputEmail" class="col-lg-2 control-label">フライヤー画像<font color="#18bc9c">（必須）</font></label>
                     <div class="col-lg-10">
                       <%= f.file_field :flyer,:class => "form-control" %>
                       <%= f.hidden_field :flyer_cache %>
@@ -34,7 +34,7 @@
                     </div>
                   </div>
                   <div class="form-group">
-                    <label for="textArea" class="col-lg-2 control-label">Gig details<font color="#18bc9c">（must）</font></label>
+                    <label for="textArea" class="col-lg-2 control-label">詳細<font color="#18bc9c">（必須）</font></label>
                     <div class="col-lg-10">
                       <%= f.text_area :infomation,:class => "form-control",:placeholder => "infomation" %>
                       <%= error_tag(@gig, :infomation) %>
@@ -42,15 +42,21 @@
                   </div>
 
                   <div class="form-group">
-                    <label for="select" class="col-lg-2 control-label">Gig date<font color="#18bc9c">（must）</font></label>
+                    <label for="select" class="col-lg-2 control-label">日付<font color="#18bc9c">（必須）</font></label>
                     <div class="col-lg-10">
                       <%= f.date_select :day,:class => "form-control",:id => "select" %><br />
                       <%= error_tag(@gig, :day) %>
                     </div>
                   </div>
 
+                  <label for="select" class="col-lg-2 control-label">都道府県<font color="#18bc9c">（必須）</font></label>
+                    <div class="col-lg-10">
+                      <%= f.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :code, :name, :prompt => true,:class => "form-control",:id => "inputEmail",:placeholder => "name" %>
+                      <%= error_tag(@gig, :prefecture_code) %>
+                  </div><br/>
+
                   <div class="form-group">
-                    <label for="select" class="col-lg-2 control-label">Country<font color="#18bc9c">（must）</font></label>
+                    <label for="select" class="col-lg-2 control-label">国<font color="#18bc9c">（任意）</font></label>
                     <div class="col-lg-10">
                       <%= f.country_select :country , [ "Japan","United States","United Kingdom","Australia", "France","Germany","Spain","Ireland","Italy","Sweden","Brazil","Canada", "Denmark", "Israel","Singapore", "India", "Indonesia", "Korea, Republic of" , "China","Hong Kong", "Thailand","South Africa"] %>
                       <%= error_tag(@gig, :country) %>
@@ -59,16 +65,8 @@
                   </div>
 
                   <div class="form-group">
-                    <label for="inputEmail" class="col-lg-2 control-label">City（option）</label>
-                    <div class="col-lg-10">
-                      <%= f.text_field :city,:class => "form-control",:id => "inputEmail",:placeholder => "city name" %>
-                      <%= error_tag(@gig, :city) %>
-                    </div>
-                  </div>
-
-                  <div class="form-group">
                     <label for="inputEmail" class="col-lg-2 control-label">
-                    SoundCloud URL（option）</label>
+                    SoundCloud URL（任意）</label>
                     <div class="col-lg-10">
                       <%= f.text_field :soundcloud_url,:class => "form-control",:id => "inputEmail",:placeholder => "soundcloud_url" %>
                       <%= error_tag(@gig, :soundcloud_url) %>
@@ -77,7 +75,7 @@
 
                   <div class="form-group">
                     <label for="inputEmail" class="col-lg-2 control-label">
-                    YouTube URL（option）</label>
+                    YouTube URL（任意）</label>
                     <div class="col-lg-10">
                       <%= f.text_field :yotube_url,:class => "form-control",:id => "inputEmail",:placeholder => "youtube" %><br />
                       <%= error_tag(@gig, :yotube_url) %>

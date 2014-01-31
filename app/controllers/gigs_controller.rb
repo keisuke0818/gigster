@@ -40,6 +40,8 @@ class GigsController < ApplicationController
     @gig.view_count = @gig.view_count + 1
     @gig.save
 
+    @comment = Comment.new()
+
     @meta_og_title = @gig.name
     @meta_og_url = "http://gigster.jp/gigs/" + @gig.id.to_s
     @meta_og_image = @gig.flyer_url
@@ -49,6 +51,30 @@ class GigsController < ApplicationController
       format.html # show.html.erb
       format.json { render json: @gig }
     end
+  end
+
+  def favorite
+    fav = Favorite.where(:user_id => current_user.id, :gig_id => params[:id] ).first
+    unless fav
+      @fav = Favorite.new()
+      @fav.user_id = current_user.id
+      @fav.gig_id = params[:id]
+      @fav.save
+    end
+
+    @gig = Gig.find(params[:id])
+    render action: "show",id: params[:id]
+  end
+
+  def comment
+    @comment = Comment.new()
+    @comment.user_id = current_user.id
+    @comment.gig_id = params[:id]
+    @comment.content = params[:content]
+    @comment.save
+
+    @gig = Gig.find(params[:id])
+    render action: "show",id: params[:id]
   end
 
   # GET /gigs/1/edit
