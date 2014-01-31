@@ -5,7 +5,7 @@ class TopsController < ApplicationController
 
     @search = Gig.search()
 
-    @gigs = Gig.order("day").limit(3)
+    @gigs = Gig.where("day > ?", Time.now - 1.days).order("day").limit(3)
     @artists = Artist.order("name").limit(3)
     @houses = House.order("country").order("name").limit(3)
 
