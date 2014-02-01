@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140131024757) do
+ActiveRecord::Schema.define(:version => 20140201123333) do
 
   create_table "artists", :force => true do |t|
     t.string   "name"
@@ -74,6 +74,7 @@ ActiveRecord::Schema.define(:version => 20140131024757) do
     t.string   "city"
     t.string   "soundcloud_url"
     t.integer  "view_count",      :default => 0
+    t.string   "gunre"
   end
 
   create_table "houses", :force => true do |t|

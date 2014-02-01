@@ -1,6 +1,6 @@
 class Gig < ActiveRecord::Base
 
-  attr_accessible :created_at, :day, :flyer, :flyer_cache, :infomation, :members_ids, :name, :country, :updated_at, :yotube_url, :city, :soundcloud_url, :view_count, :prefecture_code
+  attr_accessible :created_at, :day, :flyer, :flyer_cache, :infomation, :members_ids, :name, :country, :updated_at, :yotube_url, :city, :soundcloud_url, :view_count, :city, :gunre, :prefecture_code
 
   include JpPrefecture
   jp_prefecture :prefecture_code
@@ -18,6 +18,6 @@ class Gig < ActiveRecord::Base
   validates :infomation, :presence => true, :allow_blank => true, :length => {:maximum => 10000}
   validates :day, :presence => true, :allow_blank => true
   #validates :flyer, :presence => true, :allow_blank => true
-  validates :country, :presence => true, :allow_blank => true
+  validates :prefecture_code, :presence => true, :allow_blank => true
 
 end

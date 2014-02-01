@@ -55,14 +55,17 @@
                       <%= error_tag(@gig, :prefecture_code) %>
                   </div><br/>
 
-                  <div class="form-group">
-                    <label for="select" class="col-lg-2 control-label">国<font color="#18bc9c">（任意）</font></label>
+                  <label for="select" class="col-lg-2 control-label">町（任意）</label>
                     <div class="col-lg-10">
-                      <%= f.country_select :country , [ "Japan","United States","United Kingdom","Australia", "France","Germany","Spain","Ireland","Italy","Sweden","Brazil","Canada", "Denmark", "Israel","Singapore", "India", "Indonesia", "Korea, Republic of" , "China","Hong Kong", "Thailand","South Africa"] %>
-                      <%= error_tag(@gig, :country) %>
+                     <%= f.text_field :city,:class => "form-control",:id => "inputEmail",:placeholder => "city" %>
+                      <%= error_tag(@gig, :city) %>
+                  </div><br/>
 
-                    </div>
-                  </div>
+                  <label for="select" class="col-lg-2 control-label">ジャンル（任意）</label>
+                    <div class="col-lg-10">
+                     <%= f.text_field :gunre,:class => "form-control",:id => "inputEmail",:placeholder => "gunre" %>
+                      <%= error_tag(@gig, :gunre) %>
+                  </div><br/>
 
                   <div class="form-group">
                     <label for="inputEmail" class="col-lg-2 control-label">
