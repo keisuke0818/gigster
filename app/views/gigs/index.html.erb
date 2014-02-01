@@ -51,7 +51,7 @@
 
                     <% tmp_day = gig.day %>
                     <div class="page-header">
-                      <h3 id="tables"><%= gig.day.strftime("%m/%d(#{%w(Sunday Monday Tuesday Wednesday Thursday Friday Saturday)[gig.day.wday]})") %></h3>
+                      <h3 id="tables"><%= gig.day.strftime("%m/%d(#{%w(日 月 火 水 木 金 土)[gig.day.wday]})") %></h3>
                     </div>
                     <div class="bs-example">
                       <table class="table table-striped table-bordered table-hover">

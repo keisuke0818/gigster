@@ -194,7 +194,7 @@
 
                         <tr data-href="/gigs/<%= gig.id %>" >
                           <td width="200" ><%= image_tag gig.flyer_url, :size => "150x150" %></td>
-                          <td><h4><%= gig.name %>
+                          <td><h4><%= gig.day.strftime("%m/%d") %>　<%= gig.name %>
                               (<% pref = JpPrefecture::Prefecture.find gig.prefecture_code %> <%= pref.name %> ) </h4>
                               <%= simple_format(cut_off(gig.infomation, 100)) %></td>
                           <td width="100">
