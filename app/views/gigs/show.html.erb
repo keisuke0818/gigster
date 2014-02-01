@@ -23,7 +23,7 @@
           </div>
         </div>
         <h3>
-        <%= @gig.day %>　(<% pref = JpPrefecture::Prefecture.find @gig.prefecture_code %> <%= pref.name %> , <%= @gig.country %>)　
+        <%= @gig.day %>　(<% pref = JpPrefecture::Prefecture.find @gig.prefecture_code %> <%= pref.name %> , <%= @gig.city %>)　
         <script type="text/javascript" language="javascript">
         document.write('<div class="fb-like" data-href="http://gigster.jp/gigs/<%= @gig.id %>" data-width="450" data-layout="button_count" data-show-faces="true" data-send="true"></div>');
         </script>　
