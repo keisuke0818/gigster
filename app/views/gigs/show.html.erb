@@ -68,7 +68,7 @@
             <% if user_signed_in? %>
                 <%= button_to "お気に入り♥", { :controller=>"gigs", :action => "favorite", :id => @gig.id }, :confirm => "お気に入りにいれますか?", :method => :favorite, :class=>"btn btn-danger" %>
             <% else %>
-                <%= button_to "お気に入り♥", user_omniauth_authorize_path(:facebook), :class=>"btn btn-danger", :style=>"margin: 70px 0 0 0;" %>
+                <%= button_to "お気に入り♥", user_omniauth_authorize_path(:facebook), :class=>"btn btn-danger" %>
             <% end %>
           </td>
           <td>
