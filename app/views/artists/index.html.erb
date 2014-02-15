@@ -14,6 +14,8 @@
             <%= search_form_for @search, :url => '/artists', :class => 'navbar-form navbar-left' do |f| %>
 
               <%= f.text_field :name_cont, :class => 'form-top-control col-lg-8', :placeholder => 'アーティスト名' %>
+              <%= f.country_select :country_cont,[ "Japan","United States","United Kingdom","Australia", "France","Germany","Spain","Ireland","Italy","Sweden", "Brazil","Canada", "Denmark", "Israel","Singapore", "India", "Indonesia", "Korea, Republic of" , "China","Hong Kong", "Thailand","South Africa"], {:prompt => "国"}, {:class => 'form-top-control'} %>
+
               <%= f.submit '検索する', :class => "btn btn-success" %>
             <% end %>
 
@@ -70,6 +72,8 @@
               </tbody>
             </table>
           </div><!-- /example -->
+
+          <%= link_to 'TOPへ戻る', '/' %><br/><br/>
 
           </div>
           </article>

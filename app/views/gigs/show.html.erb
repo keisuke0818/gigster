@@ -59,15 +59,24 @@
             <!--
             <div class="fb-comments" data-href="<%=@meta_og_url%>" data-width="400"></div>
             -->
-
           </div>
         </div>
 
-        <% if user_signed_in? %>
-            <%= button_to "お気に入り♥", { :controller=>"gigs", :action => "favorite", :id => @gig.id }, :confirm => "お気に入りにいれますか?", :method => :favorite, :class=>"btn btn-danger", :style=>"margin: 70px 0 0 0;" %>
-        <% else %>
-            <%= button_to "お気に入り♥", user_omniauth_authorize_path(:facebook), :class=>"btn btn-danger", :style=>"margin: 70px 0 0 0;" %>
-        <% end %><br/>
+        <table>
+        <tr>
+          <td>
+            <% if user_signed_in? %>
+                <%= button_to "お気に入り♥", { :controller=>"gigs", :action => "favorite", :id => @gig.id }, :confirm => "お気に入りにいれますか?", :method => :favorite, :class=>"btn btn-danger" %>
+            <% else %>
+                <%= button_to "お気に入り♥", user_omniauth_authorize_path(:facebook), :class=>"btn btn-danger", :style=>"margin: 70px 0 0 0;" %>
+            <% end %>
+          </td>
+          <td>
+            <a href="http://ticket-search.pia.jp/pia/search_all.do?kw=<%=@gig.name%>" class="btn btn-info" style="background-color:#00acee;border-color:#00acee;margin: 70px 0px 0 20px;" target="_blank" type="submit" value="チケットぴあ" >チケットぴあ
+          </td>
+        </tr>
+        </table>
+        <br/><br/>
 
         <div class="bs-example">
           <p class="lead" style="color:#e74c3c;">お気に入りユーザ</p>
