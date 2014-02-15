@@ -87,6 +87,8 @@ class GigsController < ApplicationController
   def update
     @gig = Gig.find(params[:id])
 
+    @gig.yotube_url = @gig.yotube_url.gsub('watch?v=','embed/')
+
     respond_to do |format|
       if @gig.update_attributes(params[:gig])
         format.html { redirect_to @gig, notice: 'Gig was successfully updated.' }
